@@ -9,18 +9,17 @@ int main() {
     cin >> n >> m >> k;
 
     vector<int> a(m + 1);
-    for (int i = 0;i <= m;i++) {
+    for (int i = 0; i <= m; i++) {
         cin >> a[i];
     }
 
     vector<vector<int>> all_mask;
-    for (int mask = 0;mask <= m;mask++) {
+    for (int mask = 0; mask <= m; mask++) {
         vector<int> v;
-        for (int k = 0;k < n;k++) {
+        for (int k = 0; k < n; k++) {
             if ((a[mask] >> k) & 1) {
                 v.push_back(1);
-            }
-            else {
+            } else {
                 v.push_back(0);
             }
         }
@@ -29,10 +28,10 @@ int main() {
 
     int ans = 0;
     vector<int> fedor_mask = all_mask[m];
-    for (int i = 0;i < all_mask.size() - 1;i++) {
+    for (int i = 0; i < all_mask.size() - 1; i++) {
         vector<int> v = all_mask[i];
         int cnt = 0;
-        for (int k = 0;k < n;k++) {
+        for (int k = 0; k < n; k++) {
             if (fedor_mask[k] != v[k]) {
                 cnt++;
             }
